@@ -1,28 +1,58 @@
 //import axios from 'axios'
 import React from 'react'
+import { API } from '../api'
+import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
 
+  const history = useNavigate();
 
-  /*useEffect(() => {
-     (async () => {
-       const url = await axios.get("https://fut-7ac88415d96b.herokuapp.com/api")
-       const res = await url
- 
-       setUpdate(res)
-     })()
-   }, [])*/
+  const Update = async () => {
+
+
+    const del = await API.delete("/del")
+
+    return (
+      del,
+      history("/")
+    )
+  }
+
+  const data = {
+    "title": "",
+    "imagem": "",
+    "video": ""
+  }
+
+  const Home = async () => {
+    const home = await API.post("/api", data)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    return (
+      home,
+      setTimeout((
+        history("/")
+      ), 10000)
+    )
+  }
 
   return (
-    <div>
+    <div class>
       <nav className="navbar navbar-dark bg-primary" style={{ height: 80 }}>
         <div class="container-fluid">
-          <a className="navbar-brand btn btn-dark" href="/">Home</a>
-          <button className="navbar-brand btn btn-dark" >Atualize os Jogos</button>
+          <button className="navbar-brand btn btn-dark" onClick={Home}>Home</button>
+          <button className="navbar-brand btn btn-dark" onClick={Update}>Atualize os Jogos</button>
         </div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShn-fSb2i9aExJ2nGz9gJtPuzYWCaZo24Pg8S4ccB3UtZGAi_ZDBIcjjhVBHU7XMHPzAY&usqp=CAU" className="rounded mx-auto d-block" alt="img" />
+        <br /><br /><br />
+        <img src="fut.jpeg" className="rounded mx-auto d-block" alt="img" />
 
       </nav>
+      <br /><br />
     </div>
   )
 }

@@ -13,8 +13,8 @@ export default function Index() {
       const res = await req.data.dados
 
       setTitle(res.title)
-      setImg(res.img)
-      setVideo(res.link)
+      setImg(res.imagem)
+      setVideo(res.video)
     })()
   }, [])
 
