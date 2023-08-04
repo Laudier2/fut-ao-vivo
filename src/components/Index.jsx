@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { API } from '../api'
+import "./efct.css"
 
 export default function Index() {
 
@@ -24,9 +25,9 @@ export default function Index() {
 
         <div class="card-deck mt-5">
           {ler.map((f) => (
-            <div key={f.id} class="col-sm-4">
+            <div key={f.id} class="col-sm-3 box1">
               <a href={f.video} target="_blank" rel="noopener noreferrer">
-                <img class="card-img-top rounded " style={{ boxShadow: "box-shadow: 0 0 0 10px #1111" }} src={f.imagem} alt="img" />
+                <img class="card-img-top rounded" src={f.imagem} alt="img" />
               </a>
               <div class="">
                 <img src="bola.jpg" style={{ width: 30, borderRadius: 70 }} alt="img" />

@@ -1,11 +1,11 @@
 //import axios from 'axios'
 import React from 'react'
 import { API } from '../api'
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
 
-  const history = useNavigate();
+  //const history = useNavigate();
 
   const Update = async () => {
 
@@ -13,8 +13,7 @@ export default function Nav() {
     const del = await API.delete("/del")
 
     return (
-      del,
-      history("/")
+      del
     )
   }
 
@@ -34,10 +33,10 @@ export default function Nav() {
       });
 
     return (
-      home,
-      setTimeout((
+      home
+      /*setTimeout((
         history("/")
-      ), 10000)
+      ), 10000)*/
     )
   }
 
